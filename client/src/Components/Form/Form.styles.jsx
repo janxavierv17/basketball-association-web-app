@@ -5,12 +5,15 @@ export const Wrapper = styled.div`
   width: 100%;
   color: #3d4f58;
   height: 100vh;
+
   img {
     display: none;
   }
+
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+
     img {
       display: block;
       height: 100vh;
@@ -20,11 +23,13 @@ export const Wrapper = styled.div`
       margin-right: 1rem;
     }
   }
+
   form {
-    width: 50%;
+    /* width: 50%; */
     display: flex;
     flex-direction: column;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
+      margin-top: calc(5rem - 12px);
     }
 
     label {
@@ -40,6 +45,7 @@ export const Wrapper = styled.div`
       height: 43px;
       border: 1px solid #3d4f58;
       border-radius: 7px;
+      padding: 5px;
     }
 
     span {
@@ -56,6 +62,10 @@ export const Wrapper = styled.div`
       background-color: #dc3211;
       color: white;
       margin-top: 1.5rem;
+
+      @media only screen and (min-width: 768px) {
+        width: 35%;
+      }
     }
   }
 `;
@@ -77,9 +87,15 @@ export const InfoInputs = styled.div`
 `;
 
 export const Inputs = styled.div`
+  display: flex;
+  flex-direction: column;
   @media only screen and (min-width: 768px) {
-    width: 48.35%;
+    width: 47.75%;
     display: flex;
     flex-direction: column;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    width: 48.35%;
   }
 `;
