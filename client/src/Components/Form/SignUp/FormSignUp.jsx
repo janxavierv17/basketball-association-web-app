@@ -1,9 +1,9 @@
-import { Wrapper, Title, InfoInputs, Inputs } from "./Form.styles";
+import { Wrapper, Title, InfoInputs, Inputs } from "../Form.styles";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-
-import { Register } from "../../hooks/requests";
-export const Form = () => {
+import { useNavigate } from "react-router-dom";
+import { Register } from "../../../hooks/requests";
+export const FormSignUp = () => {
   const {
     register,
     handleSubmit,
@@ -11,11 +11,13 @@ export const Form = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
   const [message, setMessage] = useState();
 
   const submitHandler = async (data) => {
     const response = await Register(data);
     setMessage(response.data.message);
+    navigate("/");
   };
   return (
     <Wrapper>

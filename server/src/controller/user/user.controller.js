@@ -20,6 +20,7 @@ export const signin = async (request, response) => {
         process.env.secret,
         { expiresIn: "1hr" }
       );
+
       return response
         .status(200)
         .json({ message: "Successfully logged in.", token });

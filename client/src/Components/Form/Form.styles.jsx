@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   }
 
   form {
-    /* width: 50%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     @media only screen and (min-width: 1024px) {

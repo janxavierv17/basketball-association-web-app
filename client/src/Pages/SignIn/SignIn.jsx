@@ -1,3 +1,4 @@
+import { FormSignIn } from "../../Components/Form/SignIn/FormSignIn";
 export const SignIn = () => {
-  return <h1>Sign In</h1>;
+  return <FormSignIn />;
 };
