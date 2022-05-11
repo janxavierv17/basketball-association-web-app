@@ -1,8 +1,5 @@
-import { Link } from "react-router-dom";
+import { useSpring, animated } from "react-spring";
+
 export function App() {
-  return (
-    <div>
-      <Link to="/signup">Sign Up</Link>
-    </div>
-  );
+  return <></>;
 }
