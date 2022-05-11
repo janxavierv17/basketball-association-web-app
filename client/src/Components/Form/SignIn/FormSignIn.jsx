@@ -2,7 +2,6 @@ import { Wrapper, Title } from "../Form.styles";
 import { useForm } from "react-hook-form";
 import { LogIn } from "../../../hooks/requests";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Notification } from "../../Notification/Notification";
 export const FormSignIn = () => {
   const {
@@ -13,13 +12,13 @@ export const FormSignIn = () => {
 
   const [message, setMessage] = useState();
   const [showNotification, setShowNotification] = useState(false);
-  // const navigate = useNavigate();
 
   const submitHandler = async (data) => {
     const response = await LogIn(data);
     setMessage(response.data.message);
     setShowNotification(true);
   };
+
   return (
     <>
       {showNotification && <Notification message={message} />}

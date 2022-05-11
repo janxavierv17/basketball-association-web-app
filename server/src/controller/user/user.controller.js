@@ -16,14 +16,22 @@ export const signin = async (request, response) => {
     const authenticatedUser = await bcrypt.compare(password, user.password);
     if (authenticatedUser) {
       const token = jwt.sign(
-        { email: user.email, id: user._id, role: user.role },
+        {
+          email: user.email,
+          id: user._id,
+          role: user.role,
+          isAdmin: user.isAdmin,
+        },
         process.env.secret,
         { expiresIn: "1hr" }
       );
-
+      const { password, isAdmin, ...otherDetails } = user._doc;
       return response
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
         .status(200)
-        .json({ message: "Successfully logged in.", token });
+        .json({ message: "Successfully logged in.", ...otherDetails });
     } else {
       return response.status(400).json({
         message:
@@ -61,6 +69,7 @@ export const signup = async (request, response) => {
       googleId,
       id
     );
+    console.log(user);
     return response.status(201).json({ message: " Registered successfully." });
   } catch (error) {
     const errors = errorLogger(error.message);

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Wrapper = styled.div`
   font-family: "Oswald";
   border-top-left-radius: 7px;
